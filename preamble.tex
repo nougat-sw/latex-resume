@@ -1,23 +1,9 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{lastpage}
-\usepackage[
-    includefoot,
-    top=2 cm,
-    bottom=2 cm,
-    left=2 cm,
-    right=2 cm,
-    footskip=1.0 cm,
-]{geometry}
-\usepackage[
-    pdftitle={Software Developer Foo Bar},
-    pdfauthor={Foo Bar},
-    pdfcreator={LaTeX},
-    colorlinks=false
-]{hyperref}
 \usepackage{paracol}
 \usepackage{needspace}
 \usepackage{titlesec}
@@ -25,30 +11,41 @@
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
-\usepackage{lipsum}
-
-\fancypagestyle{customcv}{
-    \renewcommand{\headrulewidth}{0pt}
-    \fancyhf{}
-    \fancyfoot[C]{\textcolor{gray}{\textit{\small Foo Bar - Page \thepage\ / \pageref{LastPage}}}}
-}
-\pagestyle{customcv}
+\usepackage{setspace}
+\usepackage[
+    pdftitle={Software Developer},
+    pdfauthor={Software Developer},
+    pdfcreator={LaTeX},
+    colorlinks=false
+]{hyperref}
+\usepackage[
+    includefoot,
+    top=1.2 cm,
+    bottom=1.2 cm,
+    left=1.2 cm,
+    right=1.2 cm,
+    footskip=1 cm,
+]{geometry}
 
 \input{glyphtounicode}
 \pdfgentounicode=1
 
-\titleformat{\section}{\needspace{4\baselineskip}\large\bfseries}{}{0pt}{}[\vspace{1pt}\titlerule]
+\fancypagestyle{customcv}{
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhf{}
+    \fancyfoot[C]{\textcolor{gray}{\textit{\small Software Developer - Page \thepage\ / \pageref{LastPage}}}}
+}
+\pagestyle{customcv}
+
+
+\titleformat{\section}{\needspace{6\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
 \titlespacing{\section}{0cm}{0.3 cm}{0.3 cm}
 
-\renewcommand\labelitemi{$\circ$}
 \newenvironment{highlights}{
     \raggedright
     \begin{itemize}[
-            topsep=0.10 cm,
-            parsep=0.10 cm,
-            partopsep=0cm,
             itemsep=0cm,
-            leftmargin=0.7cm
+            leftmargin=0.6cm
         ]
         }{
     \end{itemize}
@@ -59,36 +56,106 @@
         \columnratio{0.75}
         \begin{paracol}{2}
             \raggedright
-            \textbf{#1}
-
-            \textit{#2}
+            \textbf{#1}, #2
             \switchcolumn
             \raggedleft
             \textit{#3}
-
-            \textit{#4}
-        \end{paracol}
-        \begin{highlights}
-            #5
-        \end{highlights}
+      \end{paracol}
+      \begin{highlights}
+          #4
+      \end{highlights}
+      \textit{Technologies: #5}
     \end{adjustwidth}
 }
 
 \newcommand{\educationentry}[4]{
     \begin{adjustwidth}{0.2cm}{0cm}
-        \columnratio{0.75}
+        \columnratio{0.85}
         \begin{paracol}{2}
             \raggedright
             \textbf{#1}
-
-            \textit{#2}
+      
+            #2
             \switchcolumn
             \raggedleft
             \textit{#3}
-
+            
             \textit{#4}
+      \end{paracol}
+    \end{adjustwidth}
+}
+
+\newcommand{\skillsentry}[2]{
+    \begin{adjustwidth}{0.2cm}{0cm}
+        \columnratio{0.22}
+        \begin{paracol}{2}
+            \raggedright
+            \textbf{#1}
+            \switchcolumn
+            #2
+      \end{paracol}
+    \end{adjustwidth}
+}
+
+\newcommand{\languagesentry}[2]{
+    \begin{adjustwidth}{0.2cm}{0cm}
+        \columnratio{0.22}
+        \begin{paracol}{2}
+            \raggedright
+            \textbf{#1}
+            \switchcolumn
+            #2
+      \end{paracol}
+    \end{adjustwidth}
+}
+
+\newcommand{\projectsentry}[3]{
+    \begin{adjustwidth}{0.2cm}{0cm}
+    \textbf{#1}
+    \begin{highlights}
+        #2
+    \end{highlights}
+    \textit{Technologies: #3}
+    \end{adjustwidth}
+}
+
+\newcommand{\hobbies}[3]{
+    \begin{adjustwidth}{0.2cm}{0cm}
+        \columnratio{0.33}
+        \begin{paracol}{3}
+            \raggedright
+            \begin{itemize}[
+            itemsep=0cm,
+            leftmargin=0.7cm
+            ]
+                #1
+            \end{itemize}
+            \switchcolumn
+            \begin{itemize}[
+            itemsep=0cm,
+            leftmargin=0cm
+            ]
+                #2
+            \end{itemize}
+            \switchcolumn
+            \begin{itemize}[
+            itemsep=0cm,
+            leftmargin=0cm
+            ]
+                #3
+            \end{itemize}
         \end{paracol}
     \end{adjustwidth}
 }
 
-\newcommand{\pipe}{\kern0.1cm|\kern0.1cm}
+\begin{document}
+\begin{paracol}{2}
+    \raggedright
+    \Huge \scshape Software Developer
+    
+    \vspace{0.5cm}
+    \huge \scshape Software Developer
+    \switchcolumn
+    \raggedleft
+    \includegraphics[width=2.5cm]{photo.jpg}
+\end{paracol}
